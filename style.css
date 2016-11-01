@@ -1,8 +1,8 @@
 
-body, html {
+body {
   width: 82%; height: 97%;
   margin: 0;
-  background-image: url(/img/CUPCAKE STORE-01.jpg);
+  background-image: url('img/CUPCAKE STORE-01.jpg');
   background-size: cover;
   background-position: center;
   image-rendering:optimizeSpeed;
@@ -18,7 +18,7 @@ body, html {
 #counterTop{
   height: 50px;
   width: 50px;
-  background-color: green;
+  background-color: white;
   background-position: -100px -160px;
   z-index: 2;
   border-color: red;
@@ -26,7 +26,6 @@ body, html {
   border-radius: 50%;
   text-align: center;
   border-style: solid;
-
 }
 /* img.resize{
   width: 540px;
