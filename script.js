@@ -93,7 +93,7 @@ $(function(){
             }
           // }, 60000);
         }
-      }, 10);
+      }, 100);
 
 
 
@@ -103,7 +103,6 @@ $(function(){
     // var startTheGame = function(){
       $('div.click_btn').on('click', function(){
         bakeCupcake(6);
-        startTime();
       })
     // }
     // startTheGame();
