@@ -79,7 +79,7 @@ $(function() {
     var customerArray = [];
     var customerQ = [];
     var priceSens = [];
-    var custChars = []
+    var custDemands = []
     var priceSensitivity = function(){
       //there are three groups of price sensitivity ($3, $5, $10)
       //but the distribution of these groups vary by (70%, 20%, 10%)
@@ -112,9 +112,10 @@ $(function() {
     var assignCharToCust = function(){
       for(var i=0; i<customerQ.length; i++){
         var demand = Math.ceil(Math.random()*6);
-        custChars.push(demand);
+        custDemands.push(demand);
       };
-      customerArray[1] = custChars;
+      console.log('demands array '+custDemands);
+      customerArray[1] = custDemands;
       customerArray[2] = priceSens;
       //second item within customerArray is an array of customer demands
     };
@@ -133,20 +134,37 @@ $(function() {
         //first item within customerArray is the customerQ array with the DOM elements
 
     };
+
     customerCreation();
-    console.log('customerarr '+customerArray);
+
 
     var ringUpSale = function(){
       //check how many cupcakes the customer wants
       var customerElement = customerArray[0][0];
       var customerDemand = customerArray[1][0];
       var customerPriceSensitivity = customerArray[2][0];
-      console.log(customerElement);
-      console.log(customerDemand);
-      console.log(customerPriceSensitivity);
+      console.log('customer element'+customerElement);
+      console.log('demand '+customerDemand);
+      console.log('price sensitivity '+customerPriceSensitivity);
+      var $cupcakeLeft = parseInt($('.numOfCC').text());
+      console.log('cupcake left '+$cupcakeLeft);
+      var customersOnQueue = customerArray[0];
+      console.log('customers '+customersOnQueue);
+      var demandsInOrder = customerArray[1];
+      console.log('demands '+demandsInOrder);
+      if(customerDemand < $cupcakeLeft){
+        updateCash(customerDemand*3, 0);
+        // var customerServed = customerArray[0][0].shift();
+        // var servedCustomerDemand = customerArray[1][0].shift();
+        // var servedCustPriceSens = customerArray[2][0].shift();
+      }
+      // console.log('shifted customer '+customerArray);
 
     }
-    ringUpSale();
+
+    $('.ringUp').on('click', function() {
+      ringUpSale();
+    })
 
 
 
