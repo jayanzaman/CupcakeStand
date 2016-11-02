@@ -44,11 +44,12 @@ $(function() {
 
         if ((totCupcakes + n) <= 12) {
             setTimeout(function() {
-                totCupcakes = totalCupcakes(n);
-                var $newbatch = $('<div class="cupcake' + totCupcakes + '""></div>');
-                $container.append($newbatch);
+                // totCupcakes = totalCupcakes(n);
+                var totsCupcakes = totalCupcakes(n);
+                // var $newbatch = $('<div class="cupcake' + totCupcakes + '""></div>');
+                // $container.append($newbatch);
                 updateCash(0, 12);
-                return $newbatch;
+                return totsCupcakes;
             }, 2000);
         } else {
             alert("Not enouch space in the cupcake display case.")
@@ -68,8 +69,12 @@ $(function() {
     var totalCupcakes = function(n) {
         var $cupcakesLeft = parseInt($('span.numOfCC').text());
         $cupcakesLeft = $cupcakesLeft + n;
-
+        if ($cupcakesLeft < 0) {
+            $cupcakesLeft = 0
+        };
         $('span.numOfCC').text($cupcakesLeft);
+        var $updatedCC = $('<div class="cupcake' + $cupcakesLeft + '""></div>');
+        $container.append($updatedCC);
         return $cupcakesLeft;
     }
     var randomCustomer = function() {
@@ -80,44 +85,44 @@ $(function() {
     var customerQ = [];
     var priceSens = [];
     var custDemands = []
-    var priceSensitivity = function(){
-      //there are three groups of price sensitivity ($3, $5, $10)
-      //but the distribution of these groups vary by (70%, 20%, 10%)
-      //so, creating an array that reflects this:
-      var group1 = 3;
-      var group2 = 5;
-      var group3 = 10;
-      var group1prob = 70;
-      var group2prob = 20;
-      var group3prob = 10;
-      var probArray = [];
-      for (var i = 0; i < group1prob; i++){
-        probArray.push(group1);
-      }
-      for (var j = 0; j < group2prob; j++){
-        probArray.push(group2);
-      }
-      for (var k = 0; k < group3prob; k++){
-        probArray.push(group3);
-      }
-      //this array will go into the customerArray as the third element
-      for(var i = 0; i < customerQ.length; i++){
-        var indexP = Math.floor(Math.random()*(group1prob + group2prob + group3prob));
-        priceSens.push(probArray[indexP]);
-        console.log('indexP '+indexP);
-        console.log('probArray '+probArray);
-        console.log('priceSens '+priceSens);
-      }
+    var priceSensitivity = function() {
+        //there are three groups of price sensitivity ($3, $5, $10)
+        //but the distribution of these groups vary by (70%, 20%, 10%)
+        //so, creating an array that reflects this:
+        var group1 = 3;
+        var group2 = 5;
+        var group3 = 10;
+        var group1prob = 70;
+        var group2prob = 20;
+        var group3prob = 10;
+        var probArray = [];
+        for (var i = 0; i < group1prob; i++) {
+            probArray.push(group1);
+        }
+        for (var j = 0; j < group2prob; j++) {
+            probArray.push(group2);
+        }
+        for (var k = 0; k < group3prob; k++) {
+            probArray.push(group3);
+        }
+        //this array will go into the customerArray as the third element
+        for (var i = 0; i < customerQ.length; i++) {
+            var indexP = Math.floor(Math.random() * (group1prob + group2prob + group3prob));
+            priceSens.push(probArray[indexP]);
+            console.log('indexP ' + indexP);
+            console.log('probArray ' + probArray);
+            console.log('priceSens ' + priceSens);
+        }
     };
-    var assignCharToCust = function(){
-      for(var i=0; i<customerQ.length; i++){
-        var demand = Math.ceil(Math.random()*6);
-        custDemands.push(demand);
-      };
-      console.log('demands array '+custDemands);
-      customerArray[1] = custDemands;
-      customerArray[2] = priceSens;
-      //second item within customerArray is an array of customer demands
+    var assignCharToCust = function() {
+        for (var i = 0; i < customerQ.length; i++) {
+            var demand = Math.ceil(Math.random() * 6);
+            custDemands.push(demand);
+        };
+        console.log('demands array ' + custDemands);
+        customerArray[1] = custDemands;
+        customerArray[2] = priceSens;
+        //second item within customerArray is an array of customer demands
     };
 
 
@@ -135,35 +140,51 @@ $(function() {
 
     };
 
-    customerCreation();
+    var randomizedCustomerCreation = function() {
+        if (customerQ.length < 3) {
+            var binary = Math.round(Math.random());
+            if (binary === 1) {
+                customerCreation();
+            }
+        }
+
+    }
 
 
-    var ringUpSale = function(){
-      //check how many cupcakes the customer wants
-      var customerElement = customerArray[0][0];
-      var customerDemand = customerArray[1][0];
-      var customerPriceSensitivity = customerArray[2][0];
-      console.log('customer element'+customerElement);
-      console.log('demand '+customerDemand);
-      console.log('price sensitivity '+customerPriceSensitivity);
-      var $cupcakeLeft = parseInt($('.numOfCC').text());
-      console.log('cupcake left '+$cupcakeLeft);
-      var customersOnQueue = customerArray[0];
-      console.log('customers '+customersOnQueue);
-      var demandsInOrder = customerArray[1];
-      console.log('demands '+demandsInOrder);
-      if(customerDemand < $cupcakeLeft){
-        updateCash(customerDemand*3, 0);
-        // var customerServed = customerArray[0][0].shift();
-        // var servedCustomerDemand = customerArray[1][0].shift();
-        // var servedCustPriceSens = customerArray[2][0].shift();
-      }
-      // console.log('shifted customer '+customerArray);
+
+
+    var ringUpSale = function() {
+        //check how many cupcakes the customer wants
+        var customerElement = customerArray[0][0];
+        var customerDemand = customerArray[1][0];
+        var customerPriceSensitivity = customerArray[2][0];
+        console.log('customer element' + customerElement);
+        console.log('demand ' + customerDemand);
+        console.log('price sensitivity ' + customerPriceSensitivity);
+        var $cupcakeLeft = parseInt($('.numOfCC').text());
+        console.log('cupcake left ' + $cupcakeLeft);
+        var customersOnQueue = customerArray[0];
+        console.log('customers ' + customersOnQueue);
+        var demandsInOrder = customerArray[1];
+        console.log('demands ' + demandsInOrder);
+        if (customerDemand < $cupcakeLeft) {
+            updateCash(customerDemand * 3, 0);
+            totalCupcakes(-demandsInOrder);
+            //figure out why the cupcakes never reach 0 using this function
+
+
+            // var customerServed = customerArray[0][0].shift();
+            // var servedCustomerDemand = customerArray[1][0].shift();
+            // var servedCustPriceSens = customerArray[2][0].shift();
+        }
+        // console.log('shifted customer '+customerArray);
 
     }
 
     $('.ringUp').on('click', function() {
-      ringUpSale();
+        ringUpSale();
+        randomizedCustomerCreation();
+        //maybe this function should be connected to an advertisement campaign that costs money
     })
 
 
