@@ -164,15 +164,38 @@ body {
 .charBaker{
 
 }
-.customer1{
+ul, li{
+  list-style: none;
+}
+.buyer{
   position: absolute;
   background-image: url('img/charactersStripe.001.jpeg');
-  background-position: -439px -1037px;
   width: 86px;
   height: 271px;
-  top:  426px;
-  left: 722px;
+  top:  398px;
+  left: 613px;
 }
+.customer1{
+  background-position: -439px -1037px;
+}
+.customer2{
+  background-position: -574px -1037px;
+}
+.customer3{
+  background-position: -311px -1037px;
+}
+.ringUp{
+  position: absolute;
+  background-color: lightgreen;
+  width: 100px;
+  height: 50px;
+  top: 426px;
+  left: 482px;
+  text-align: center;
+}
+
+
+
 .time{
   position: absolute;
   background-color: lightblue;
