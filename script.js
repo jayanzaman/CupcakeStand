@@ -82,10 +82,10 @@ $(function() {
         return randomIndex;
     };
     //these arrays will hold customer requirements in order of creation
-    var customerArray = [];//this array contains the other 3 arrays
-    var customerQ = [];//this array contains the DOM elements of customers
-    var priceSens = [];//this array contains price sensitivity of customers
-    var custDemands = []//this array contains how many cupcakes customers want
+    var customerArray = []; //this array contains the other 3 arrays
+    var customerQ = []; //this array contains the DOM elements of customers
+    var priceSens = []; //this array contains price sensitivity of customers
+    var custDemands = [] //this array contains how many cupcakes customers want
     var priceSensitivity = function() {
         //there are three groups of price sensitivity ($3, $5, $10)
         //but the distribution of these groups vary by (70%, 20%, 10%)
@@ -120,67 +120,65 @@ $(function() {
             var demand = Math.ceil(Math.random() * 6);
             custDemands.push(demand);
         };
-        console.log('demands array ' + custDemands);
-        customerArray[1] = custDemands;
-        //second item within customerArray is an array of customer demands
     };
 
 
     var customerCreation = function() {
-        var maxCustomer = 3;//max is three because that's how many customer classes I created in CSS. If I add more CSS, I can have more customers
-        var n = randomIndexFunc(maxCustomer);//this is to make sure I am not creating a customer I don't have a class for in CSS
+        var maxCustomer = 3; //max is three because that's how many customer classes I created in CSS. If I add more CSS, I can have more customers
+        var n = randomIndexFunc(maxCustomer); //this is to make sure I am not creating a customer I don't have a class for in CSS
         var $createCustomer = $('<li class="customer' + n + '""></li>');
         $createCustomer.addClass('buyer');
         var $customerList = $('ul.customer')
         $customerList.append($createCustomer);
         customerQ.push($createCustomer);
-        // customerArray[0] = customerQ;
-        //first item within customerArray is the customerQ array with the DOM elements
+        newCustomerDemand();
+        priceSensitivity();
+
     };
-    for(var i=1; i<4; i++){
-      customerCreation();
+    for (var i = 1; i < 4; i++) {
+        customerCreation();
     }
     console.log(customerQ);
 
-    var randomizedCustomerCreation = function() {
-        if (customerQ.length < 3) {
-            var binary = Math.round(Math.random());
-            setInterval(function() {
-                if (binary === 1) {
-                    customerCreation();
-                }
-              }, 2000);
-        }
-    }
-    // randomizedCustomerCreation();
+    var positioningCustomers = function(){
+      //this function positions the customers according to their place in que
 
+
+    }
+
+    var randomizedCustomerCreation = function() {
+            if (customerQ.length < 3) {
+                var binary = Math.round(Math.random());
+                setInterval(function() {
+                    if (binary === 1) {
+                        customerCreation();
+                    }
+                }, 2000);
+            }
+        }
+        // randomizedCustomerCreation();
 
 
     var ringUpSale = function() {
+
+        var customersOnQueue = customerQ[0];
+        //Chooses the first customer
+        var customerDemand = custDemands[0];
         //check how many cupcakes the customer wants
-        var customerElement = customerArray[0][0];
-        var customerDemand = customerArray[1][0];
-        var customerPriceSensitivity = customerArray[2][0];
-        console.log('customer element' + customerElement);
+        var customerPriceSensitivity = priceSens[0];
+        //how much is that customer willing to pay
         console.log('demand ' + customerDemand);
         console.log('price sensitivity ' + customerPriceSensitivity);
         var $cupcakeLeft = parseInt($('.numOfCC').text());
         console.log('cupcake left ' + $cupcakeLeft);
-        var customersOnQueue = customerArray[0];
         console.log('customers ' + customersOnQueue);
-        var demandsInOrder = customerArray[1];
-        console.log('demands ' + demandsInOrder);
+        console.log('demands ' + customerDemand);
         if (customerDemand < $cupcakeLeft) {
             updateCash(customerDemand * 3, 0);
-            totalCupcakes(-demandsInOrder);
+            totalCupcakes(-customerDemand);
             //figure out why the cupcakes never reach 0 using this function
-
-
-            // var customerServed = customerArray[0][0].shift();
-            // var servedCustomerDemand = customerArray[1][0].shift();
-            // var servedCustPriceSens = customerArray[2][0].shift();
         }
-        // console.log('shifted customer '+customerArray);
+
 
     }
 
