@@ -3,28 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cupcake Stand</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
+  <!-- jQuery -->
   <script src="javascript/jquery-1.11.3.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
   <script src="script.js"></script>
 </head>
 <body>
     <div class="container">
-      <div class="background">
-
-
-      </div>
-      </div>
-      <div class="click_btn">Bake a new batch</div>
-      <div class="cash">Cash: <span class="cashAmount">100</span></p></div>
-      <div class="displayCupcakes">Cupcakes Left: <span class="numOfCC">0</span></div>
-      <div class="ringUp">Ring up sale</div>
-      <div class="customerContainer">
-        <ul class="customer">
-
-        </ul>
-      </div>
-
+      <div class="background"></div>
+    </div>
+    <button type="button" class="click_btn btn btn-warning">Bake a new batch</button>
+    <button role="button" class="btn btn-default cash">Cash: <span class="cashAmount">100</span></p></button>
+    <button class="btn btn-default displayCupcakes">Cupcakes Left: <span class="numOfCC">0</span></button>
+    <button type="button" class="btn btn-success ringUp">Ring up sale</button>
+    <div class="customerContainer">
+      <ul class="customer"></ul>
     </div>
 </body>
 </html>

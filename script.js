@@ -4,7 +4,7 @@ $(function() {
     var $container = $('div.container');
     var cashOnHand;
     var startTime = function() {
-        var $timeDisplay = $('<div class="time">Time: <span class="hour">8</span> Hours <span class="minute">0</span> minutes left</div>');
+        var $timeDisplay = $('<button role="button" class="btn btn-default time">Time: <span class="hour">8</span> Hours <span class="minute">0</span> minutes left</button>');
         $container.append($timeDisplay);
 
         var minuteArray = [];
@@ -53,6 +53,7 @@ $(function() {
             }, 2000);
         } else {
             alert("Not enouch space in the cupcake display case.")
+            // var $newbatch = $('<button type="button" class="btn btn-warning cupcake' + totCupcakes + '""></button>');
             var $newbatch = $('<div class="cupcake' + totCupcakes + '""></div>');
             $container.append($newbatch);
             return totCupcakes;
@@ -126,11 +127,13 @@ $(function() {
     var customerCreation = function() {
         var maxCustomer = 3; //max is three because that's how many customer classes I created in CSS. If I add more CSS, I can have more customers
         var n = randomIndexFunc(maxCustomer); //this is to make sure I am not creating a customer I don't have a class for in CSS
-        var $createCustomer = $('<li class="customer' + n + '""></li>');
-        $createCustomer.addClass('buyer');
-        var $customerList = $('ul.customer')
-        $customerList.append($createCustomer);
-        customerQ.push($createCustomer);
+        if (customerQ.length < maxCustomer) {
+            var $createCustomer = $('<li class="customer' + n + '""></li>');
+            $createCustomer.addClass('buyer');
+            var $customerList = $('ul.customer')
+            $customerList.append($createCustomer);
+            customerQ.push($createCustomer);
+        }
         newCustomerDemand();
         priceSensitivity();
 
@@ -140,8 +143,8 @@ $(function() {
     }
     console.log(customerQ);
 
-    var positioningCustomers = function(){
-      //this function positions the customers according to their place in que
+    var positioningCustomers = function() {
+        //this function positions the customers according to their place in que
 
 
     }
@@ -176,6 +179,9 @@ $(function() {
         if (customerDemand < $cupcakeLeft) {
             updateCash(customerDemand * 3, 0);
             totalCupcakes(-customerDemand);
+            customerQ.shift();
+            custDemands.shift();
+            priceSens.shift();
             //figure out why the cupcakes never reach 0 using this function
         }
 
@@ -193,7 +199,7 @@ $(function() {
 
 
     // var startTheGame = function(){
-    $('div.click_btn').on('click', function() {
+    $('button.click_btn').on('click', function() {
             bakeCupcake(6);
         })
         // }
