@@ -77,14 +77,15 @@ $(function() {
         $container.append($updatedCC);
         return $cupcakesLeft;
     }
-    var randomCustomer = function() {
-        var randomIndex = Math.ceil(Math.random() * 3);
+    var randomIndexFunc = function(n) {
+        var randomIndex = Math.ceil(Math.random() * n);
         return randomIndex;
     };
-    var customerArray = [];
-    var customerQ = [];
-    var priceSens = [];
-    var custDemands = []
+    //these arrays will hold customer requirements in order of creation
+    var customerArray = [];//this array contains the other 3 arrays
+    var customerQ = [];//this array contains the DOM elements of customers
+    var priceSens = [];//this array contains price sensitivity of customers
+    var custDemands = []//this array contains how many cupcakes customers want
     var priceSensitivity = function() {
         //there are three groups of price sensitivity ($3, $5, $10)
         //but the distribution of these groups vary by (70%, 20%, 10%)
@@ -114,42 +115,44 @@ $(function() {
             console.log('priceSens ' + priceSens);
         }
     };
-    var assignCharToCust = function() {
+    var newCustomerDemand = function() {
         for (var i = 0; i < customerQ.length; i++) {
             var demand = Math.ceil(Math.random() * 6);
             custDemands.push(demand);
         };
         console.log('demands array ' + custDemands);
         customerArray[1] = custDemands;
-        customerArray[2] = priceSens;
         //second item within customerArray is an array of customer demands
     };
 
 
     var customerCreation = function() {
-        var n = randomCustomer();
+        var maxCustomer = 3;//max is three because that's how many customer classes I created in CSS. If I add more CSS, I can have more customers
+        var n = randomIndexFunc(maxCustomer);//this is to make sure I am not creating a customer I don't have a class for in CSS
         var $createCustomer = $('<li class="customer' + n + '""></li>');
         $createCustomer.addClass('buyer');
         var $customerList = $('ul.customer')
         $customerList.append($createCustomer);
         customerQ.push($createCustomer);
-        assignCharToCust();
-        priceSensitivity();
-        customerArray[0] = customerQ;
+        // customerArray[0] = customerQ;
         //first item within customerArray is the customerQ array with the DOM elements
-
     };
+    for(var i=1; i<4; i++){
+      customerCreation();
+    }
+    console.log(customerQ);
 
     var randomizedCustomerCreation = function() {
         if (customerQ.length < 3) {
             var binary = Math.round(Math.random());
-            if (binary === 1) {
-                customerCreation();
-            }
+            setInterval(function() {
+                if (binary === 1) {
+                    customerCreation();
+                }
+              }, 2000);
         }
-
     }
-
+    // randomizedCustomerCreation();
 
 
 
