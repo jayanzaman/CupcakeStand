@@ -28,7 +28,8 @@ body {
   /* -ms-interpolation-mode:bicubic; */
   /* overflow: hidden; */
   /* z-index: 0; */
-  background-size: 60%;
+  background-size: contain;
+  background-repeat: no-repeat;
   width: 1504px;
   height: 763px;
   top:  616px;
@@ -55,12 +56,12 @@ body {
 }
 .cupcake10{
   position: absolute;
-  background-image: url('img/cupcakeCountStripe.001.jpeg');
-  background-position: -78px -309px;
-  width: 322px;
-  height: 79px;
-  top:  436px;
-  left: 149px;
+  background-image: url('img/Cupcake_stand_.jpg');
+  background-position: -117px -1040px;
+  width: 104%;
+  height: 117px;
+  top:  345px;
+  left: 268px;
 }
 .cupcake9{
   position: absolute;
@@ -91,12 +92,14 @@ body {
 }
 .cupcake6{
   position: absolute;
-  background-image: url('img/cupcakeCountStripe.001.jpeg');
-  background-position: -432px -97px;
-  width: 322px;
-  height: 79px;
-  top:  436px;
-  left: 149px;
+  background-image: url('img/Cupcake_stand_.jpg');
+  background-position: -117px -1040px;
+  background-size: contain;
+  width: 104%;
+  height: 117px;
+/*   background-size: 60%; */
+  top:  345px;
+  left: 268px;
 }
 .cupcake5{
   position: absolute;
@@ -197,12 +200,18 @@ ul, li{
 }
 .customer1{
   background-position: -439px -1037px;
+  top:  398px;
+  left: 575px;
 }
 .customer2{
   background-position: -574px -1037px;
+    top:  398px;
+    left: 714px;
 }
 .customer3{
   background-position: -311px -1037px;
+  top:  398px;
+  left: 750px;
 }
 .ringUp{
   position: absolute;

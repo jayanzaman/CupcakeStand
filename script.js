@@ -130,7 +130,7 @@ $(function() {
         if (customerQ.length < maxCustomer) {
             var $createCustomer = $('<li class="customer' + n + '""></li>');
             $createCustomer.addClass('buyer');
-            var $customerList = $('ul.customer')
+            var $customerList = $('ul.customerGroup')
             $customerList.append($createCustomer);
             customerQ.push($createCustomer);
         }
@@ -145,7 +145,7 @@ $(function() {
 
     var positioningCustomers = function() {
         //this function positions the customers according to their place in que
-
+        var $firstCustomer = $('li.customer:nth-child(1)')
 
     }
 
