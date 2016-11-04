@@ -194,7 +194,11 @@ body {
   left: 282px;
   /* text-align: center; */
 }
-.charBaker{
+.baking{
+  left: 416px;
+  top: 419px;
+  position: absolute;
+  color: orange;
 
 }
 ul, li{
@@ -202,26 +206,30 @@ ul, li{
 }
 .buyer{
   position: absolute;
-  background-image: url('img/charactersStripe.001.jpeg');
-  width: 86px;
-  height: 271px;
+  /* background-image: url('img/charactersStripe.001.jpeg'); */
+  /* width: 86px; */
+  /* height: 271px; */
   top:  398px;
   left: 714px;
+  font-size: 361px;
 }
-.customer1{
-  background-position: -439px -1037px;
-  top:  398px;
-  left: 575px;
+.firstCustomer{
+  /* background-position: -439px -1037px; */
+  top:  321px;
+  left: 593px;
+  color: green;
 }
-.customer2{
-  background-position: -574px -1037px;
-    top:  398px;
-    left: 714px;
+.secondCustomer{
+  /* background-position: -574px -1037px; */
+    top:  321px;
+    left: 1067px;
+    color: blue;
 }
-.customer3{
-  background-position: -311px -1037px;
-  top:  398px;
-  left: 750px;
+.thirdCustomer{
+  /* background-position: -311px -1037px; */
+  top:  321px;
+  left: 1242px;
+  color: red;
 }
 .ringUp{
   position: absolute;

@@ -43,17 +43,20 @@ $(function() {
         var totCupcakes = totalCupcakes(0);
 
         if ((totCupcakes + n) <= 10) {
+          var $baking = $('<i class="baking fa fa-refresh fa-spin fa-3x fa-fw"></i>')
+          $('body').append($baking);
             setTimeout(function() {
                 // totCupcakes = totalCupcakes(n);
                 var totsCupcakes = totalCupcakes(n);
                 // var $newbatch = $('<div class="cupcake' + totCupcakes + '""></div>');
                 // $container.append($newbatch);
                 updateCash(0, 10);
+                $('i.baking').remove();
                 return totsCupcakes;
             }, 2000);
         } else {
             alert("Not enouch space in the cupcake display case.")
-            // var $newbatch = $('<button type="button" class="btn btn-warning cupcake' + totCupcakes + '""></button>');
+                // var $newbatch = $('<button type="button" class="btn btn-warning cupcake' + totCupcakes + '""></button>');
             var $newbatch = $('<div class="cupcake' + totCupcakes + '""></div>');
             $container.append($newbatch);
             return totCupcakes;
@@ -118,17 +121,29 @@ $(function() {
     };
     var newCustomerDemand = function() {
         for (var i = 0; i < customerQ.length; i++) {
-            var demand = Math.ceil(Math.random() * 6);
+            var demand = Math.ceil(Math.random() * 5);
             custDemands.push(demand);
         };
     };
 
+    var positioningCustomers = function() {
+        //this function positions the customers according to their place in que
+        var $firstCustomer = $('ul li:nth-child(1)');
+        $firstCustomer.addClass('firstCustomer');
+        var $secondCustomer = $('ul li:nth-child(2)');
+        $secondCustomer.addClass('secondCustomer');
+        var $thirdCustomer = $('ul li:nth-child(3)');
+        $thirdCustomer.addClass('thirdCustomer');
+
+    }
 
     var customerCreation = function() {
         var maxCustomer = 3; //max is three because that's how many customer classes I created in CSS. If I add more CSS, I can have more customers
         var n = randomIndexFunc(maxCustomer); //this is to make sure I am not creating a customer I don't have a class for in CSS
         if (customerQ.length < maxCustomer) {
-            var $createCustomer = $('<li class="customer' + n + '""></li>');
+            // <i class="fa fa-male" aria-hidden="true"></i>
+            var $createCustomer = $('<li><i class="fa fa-male" aria-hidden="true"></i></li>');
+            // var $createCustomer = $('<li class="customer' + n + '""></li>');
             $createCustomer.addClass('buyer');
             var $customerList = $('ul.customerGroup')
             $customerList.append($createCustomer);
@@ -136,6 +151,7 @@ $(function() {
         }
         newCustomerDemand();
         priceSensitivity();
+        positioningCustomers();
 
     };
     for (var i = 1; i < 4; i++) {
@@ -143,11 +159,7 @@ $(function() {
     }
     console.log(customerQ);
 
-    var positioningCustomers = function() {
-        //this function positions the customers according to their place in que
-        var $firstCustomer = $('li.customer:nth-child(1)')
 
-    }
 
     var randomizedCustomerCreation = function() {
             if (customerQ.length < 3) {
@@ -182,6 +194,14 @@ $(function() {
             customerQ.shift();
             custDemands.shift();
             priceSens.shift();
+            var $firstCustomer = $('ul li:nth-child(1)');
+
+            var $secondCustomer = $('ul li:nth-child(2)');
+            $secondCustomer.removeClass('secondCustomer');
+            var $thirdCustomer = $('ul li:nth-child(3)');
+            $thirdCustomer.removeClass('thirdCustomer');
+            $firstCustomer.remove();
+            positioningCustomers();
             //figure out why the cupcakes never reach 0 using this function
         }
 
