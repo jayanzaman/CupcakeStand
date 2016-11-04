@@ -4,7 +4,24 @@ $(function() {
     var $container = $('div.container');
     var cashOnHand;
     var price = 3;
-
+    var stopTheGame = function() {
+        clearInterval(randomizedCustomerCreation);
+        $('div.customerContainer').remove();
+        $('ul.customerGroup').remove();
+        $('div.custDemand1').remove();
+        $('.cupcake1').remove();
+        $('.cupcake2').remove();
+        $('.cupcake3').remove();
+        $('.cupcake4').remove();
+        $('.cupcake5').remove();
+        $('.cupcake6').remove();
+        $('.cupcake7').remove();
+        $('.cupcake8').remove();
+        $('.cupcake9').remove();
+        $('.cupcake10').remove();
+        $('.cupcake0').remove();
+        $('.displayCupcake').remove();
+    }
     var startTime = function() {
         var $timeDisplay = $('<button role="button" class="btn btn-default time">Time: <span class="hour">8</span> Hours <span class="minute">0</span> minutes left</button>');
         $container.append($timeDisplay);
@@ -36,13 +53,16 @@ $(function() {
                     if (profit > 0) {
                         alert("Day is over. You've made a profit of $" + profit);
                         clearInterval(coolTimer);
+                        stopTheGame();
                     } else if (profit === 0) {
                         alert("Day is over and you didn't make any profit.");
                         clearInterval(coolTimer);
+                        stopTheGame();
                     } else {
                         var loss = 100 - $cashLeft;
                         alert("Day is over. You have lost $" + loss);
                         clearInterval(coolTimer);
+                        stopTheGame();
                     }
                     m = minuteArray.length;
                 }
@@ -136,8 +156,19 @@ $(function() {
             var demand = Math.ceil(Math.random() * 5);
             custDemands.push(demand);
         };
-        var $firstCustDemand = $('<div class="custDemand1 btn btn-default">Next customer wants <span>' + custDemands[0] + '</span> cupcake(s)</div>');
-        $('.customerContainer').append($firstCustDemand);
+        if ($('li.firstCustomer').length > 0) {
+            var $firstCustDemand = $('<div class="custDemand1 btn btn-default">Next customer wants <span>' + custDemands[0] + '</span> cupcake(s)</div>');
+            $('.customerContainer').append($firstCustDemand);
+        }
+        if ($('li.secondCustomer').length > 0) {
+            var $secondCustDemand = $('<div class="custDemand2 btn btn-default">Next customer wants <span>' + custDemands[1] + '</span> cupcake(s)</div>');
+            $('.customerContainer').append($secondCustDemand);
+        }
+        if ($('li.thirdCustomer').length > 0) {
+            var $thirdCustDemand = $('<div class="custDemand3 btn btn-default">Next customer wants <span>' + custDemands[2] + '</span> cupcake(s)</div>');
+            $('.customerContainer').append($thirdCustDemand);
+        }
+
 
     };
 
@@ -167,21 +198,19 @@ $(function() {
         positioningCustomers();
         newCustomerDemand();
         priceSensitivity();
-
-
     };
 
     var randomizedCustomerCreation = function() {
-        if (customerQ.length < 4) {
-            var binary = Math.round(Math.random());
-            setInterval(function() {
-                if (binary === 1) {
-                    customerCreation();
-                }
-            }, 10000);
+            if (customerQ.length < 4) {
+                var binary = Math.round(Math.random());
+                setInterval(function() {
+                    if (binary === 1) {
+                        customerCreation();
+                    }
+                }, 10000);
+            }
         }
-    }
-    randomizedCustomerCreation();
+        // randomizedCustomerCreation();
 
     var ringUpSale = function() {
 
@@ -208,14 +237,10 @@ $(function() {
             $secondCustomer.removeClass('secondCustomer');
             var $thirdCustomer = $('ul li:nth-child(3)');
             $thirdCustomer.removeClass('thirdCustomer');
-
             positioningCustomers();
             //figure out why the cupcakes never reach 0 using this function
         }
     }
-
-
-
 
     //Starting The Game
     $('.start_btn').on('click', function() {
@@ -231,12 +256,6 @@ $(function() {
             //maybe this function should be connected to an advertisement campaign that costs money
         })
     })
-
-
-
-
-
-
 
 
 

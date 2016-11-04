@@ -208,14 +208,31 @@ ul, li{
 }
 .custDemand1{
   position: absolute;
-  top: 250px;
-  left: 771px;
+  top: 164px;
+  left: 1130px;
   /* background-color: blue; */
-  width: 250px;
+  width: 290px;
   height: 35px;
   color: #000;
 }
-
+.custDemand2{
+  position: absolute;
+  top: 207px;
+  left: 1130px;
+  /* background-color: blue; */
+  width: 290px;
+  height: 35px;
+  color: #000;
+}
+.custDemand3{
+  position: absolute;
+  top: 250px;
+  left: 1130px;
+  /* background-color: blue; */
+  width: 290px;
+  height: 35px;
+  color: #000;
+}
 
 
 
