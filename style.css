@@ -215,6 +215,17 @@ body {
 ul, li{
   list-style: none;
 }
+.cupcakegirl{
+  position: absolute;
+  background-image: url('img/cupcakegirl.png');
+  background-position: -1px -6px;
+  width: 816px;
+  height: 199px;
+  top:  306px;
+  left: 709px;
+  background-size: 26%;
+  background-repeat: no-repeat;
+}
 .buyer{
   position: absolute;
   /* background-image: url('img/charactersStripe.001.jpeg'); */

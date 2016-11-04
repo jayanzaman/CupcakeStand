@@ -34,7 +34,7 @@ $(function() {
                     m = minuteArray.length;
                 }
             }
-        }, 100);
+        }, 1000);
     }
     startTime();
     var bakeCupcake = function(n) {
@@ -116,9 +116,6 @@ $(function() {
         for (var i = 0; i < customerQ.length; i++) {
             var indexP = Math.floor(Math.random() * (group1prob + group2prob + group3prob));
             priceSens.push(probArray[indexP]);
-            console.log('indexP ' + indexP);
-            console.log('probArray ' + probArray);
-            console.log('priceSens ' + priceSens);
         }
     };
     var newCustomerDemand = function() {
@@ -156,22 +153,21 @@ $(function() {
         positioningCustomers();
 
     };
-    for (var i = 1; i < 4; i++) {
-        customerCreation();
-    }
+    // for (var i = 1; i < 4; i++) {
+    //     customerCreation();
+    // }
 
     var randomizedCustomerCreation = function() {
-            if (customerQ.length < 3) {
+            if (customerQ.length < 4) {
                 var binary = Math.round(Math.random());
                 setInterval(function() {
                     if (binary === 1) {
                         customerCreation();
                     }
-                }, 2000);
+                }, 10000);
             }
         }
-        // randomizedCustomerCreation();
-
+        randomizedCustomerCreation();
 
     var ringUpSale = function() {
 
@@ -192,7 +188,6 @@ $(function() {
             custDemands.shift();
             priceSens.shift();
             var $firstCustomer = $('ul li:nth-child(1)');
-
             var $secondCustomer = $('ul li:nth-child(2)');
             $secondCustomer.removeClass('secondCustomer');
             var $thirdCustomer = $('ul li:nth-child(3)');
@@ -218,6 +213,7 @@ $(function() {
     // var startTheGame = function(){
     $('button.click_btn').on('click', function() {
             bakeCupcake(5);
+            randomizedCustomerCreation();
         })
         // }
         // startTheGame();
