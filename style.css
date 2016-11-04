@@ -1,61 +1,18 @@
-/*
-body {
-  width: 100%; height: 100%;
-  margin: 0;
-  background-image: url('img/Cupcake_stand_.jpg');
-  background-size: cover;
-  background-position: center;
-  image-rendering:optimizeSpeed;
-  image-rendering:-moz-crisp-edges;
-  image-rendering:-o-crisp-edges;
-  image-rendering:-webkit-optimize-contrast;
-  image-rendering:crisp-edges;
-  -ms-interpolation-mode:bicubic;
-  overflow: hidden;
-  z-index: 0;
-} */
+
 .background {
-  /* width: 100%; height: 100%; */
-  /* margin: 0; */
   background-image: url('img/Cupcake_stand_.jpg');
-  /* background-size: cover; */
-/*   background-position: center; */
-  /* image-rendering:optimizeSpeed; */
-  /* image-rendering:-moz-crisp-edges; */
-  /* image-rendering:-o-crisp-edges; */
-  /* image-rendering:-webkit-optimize-contrast; */
-  /* image-rendering:crisp-edges; */
-  /* -ms-interpolation-mode:bicubic; */
-  /* overflow: hidden; */
-  /* z-index: 0; */
   background-size: contain;
   background-repeat: no-repeat;
-  /* width: 1504px; */
   height: 763px;
   top:  616px;
   left: 116px;
 }
+.start_btn{
+  position: absolute;
+  top: 180px;
+  left: 572px;
+}
 
-/* .cupcake12{
-  position: absolute;
-  background-image: url('img/cupcakeStripe2.jpeg');
-  background-position: -78px -97px;
-  width: 325px;
-  height: 131px;
-  top:  374px;
-  left: 279px;
-  background-size: 458%;
-} */
-/* .cupcake11{
-  position: absolute;
-  background-image: url('img/cupcakeStripe2.jpeg');
-  background-position: -78px -203px;
-  width: 325px;
-  height: 131px;
-  top:  374px;
-  left: 279px;
-  background-size: 458%; */
-/* } */
 .cupcake10{
   position: absolute;
   background-image: url('img/cupcakeStripe2.jpeg');
@@ -175,25 +132,15 @@ body {
   left: 472px;
   text-align: center;
 }
-.click_btn{
+.bake_btn{
   position: absolute;
-  /* background-color: yellow; */
-  /* width: 100px; */
-  /* height: 50px; */
   top: 335px;
   left: 279px;
-  /* text-align: center; */
-
 }
 .cash{
   position: absolute;
-  /* background-color: green; */
-  /* width: 100px; */
-  /* height: 50px; */
-  /* color: #fff; */
   top: 250px;
   left: 282px;
-  /* text-align: center; */
 }
 .register{
   position: absolute;
@@ -228,53 +175,46 @@ ul, li{
 }
 .buyer{
   position: absolute;
-  /* background-image: url('img/charactersStripe.001.jpeg'); */
-  /* width: 86px; */
-  /* height: 271px; */
   top:  398px;
   left: 714px;
   font-size: 361px;
 }
 .firstCustomer{
-  /* background-position: -439px -1037px; */
   top:  321px;
   left: 593px;
   color: green;
 }
 .secondCustomer{
-  /* background-position: -574px -1037px; */
     top:  321px;
     left: 1067px;
     color: blue;
 }
 .thirdCustomer{
-  /* background-position: -311px -1037px; */
   top:  321px;
   left: 1242px;
   color: red;
 }
 .ringUp{
   position: absolute;
-  /* background-color: lightgreen; */
-  /* width: 100px; */
-  /* height: 50px; */
   top: 531px;
   left: 895px;
   text-align: center;
 }
-
-
-
 .time{
   position: absolute;
-  /* background-color: lightblue; */
-  /* width: 225px; */
-  /* height: 22px; */
   top: 251px;
   left: 527px;
   text-align: center;
 }
-
+.custDemand1{
+  position: absolute;
+  top: 250px;
+  left: 771px;
+  /* background-color: blue; */
+  width: 250px;
+  height: 35px;
+  color: #000;
+}
 
 
 

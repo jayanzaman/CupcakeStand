@@ -4,6 +4,7 @@ $(function() {
     var $container = $('div.container');
     var cashOnHand;
     var price = 3;
+
     var startTime = function() {
         var $timeDisplay = $('<button role="button" class="btn btn-default time">Time: <span class="hour">8</span> Hours <span class="minute">0</span> minutes left</button>');
         $container.append($timeDisplay);
@@ -30,13 +31,22 @@ $(function() {
                     $('span.hour').text(hourArray[h]);
                     h++;
                 } else {
-                    alert("Game finished");
+                    var $cashLeft = parseInt($('span.cashAmount').text());
+                    var profit = $cashLeft - 100;
+                    if (profit > 0) {
+                        alert("Day is over. You've made a profit of $" + profit);
+                    } else if (profit === 0) {
+                        alert("Day is over and you didn't make any profit.");
+                    } else {
+                        var loss = 100 - $cashLeft;
+                        alert("Day is over. You have lost $" + loss);
+                    }
                     m = minuteArray.length;
                 }
             }
-        }, 1000);
+        }, 100);
     }
-    startTime();
+
     var bakeCupcake = function(n) {
         //this function will create the object cupcake and place them on the screen
         //everytime a new back of cupcakes are created, it'll cost the owner
@@ -44,8 +54,8 @@ $(function() {
         var totCupcakes = totalCupcakes(0);
 
         if ((totCupcakes + n) <= 10) {
-          var $baking = $('<i class="baking fa fa-refresh fa-spin fa-3x fa-fw"></i>')
-          $('body').append($baking);
+            var $baking = $('<i class="baking fa fa-refresh fa-spin fa-3x fa-fw"></i>')
+            $('body').append($baking);
             setTimeout(function() {
                 // totCupcakes = totalCupcakes(n);
                 var totsCupcakes = totalCupcakes(n);
@@ -123,6 +133,9 @@ $(function() {
             var demand = Math.ceil(Math.random() * 5);
             custDemands.push(demand);
         };
+        var $firstCustDemand = $('<div class="custDemand1 btn btn-default">Next customer wants <span>' + custDemands[0] + '</span> cupcake(s)</div>');
+        $('.customerContainer').append($firstCustDemand);
+
     };
 
     var positioningCustomers = function() {
@@ -148,26 +161,24 @@ $(function() {
             $customerList.append($createCustomer);
             customerQ.push($createCustomer);
         }
+        positioningCustomers();
         newCustomerDemand();
         priceSensitivity();
-        positioningCustomers();
+
 
     };
-    // for (var i = 1; i < 4; i++) {
-    //     customerCreation();
-    // }
 
     var randomizedCustomerCreation = function() {
-            if (customerQ.length < 4) {
-                var binary = Math.round(Math.random());
-                setInterval(function() {
-                    if (binary === 1) {
-                        customerCreation();
-                    }
-                }, 10000);
-            }
+        if (customerQ.length < 4) {
+            var binary = Math.round(Math.random());
+            setInterval(function() {
+                if (binary === 1) {
+                    customerCreation();
+                }
+            }, 10000);
         }
-        randomizedCustomerCreation();
+    }
+    randomizedCustomerCreation();
 
     var ringUpSale = function() {
 
@@ -178,7 +189,7 @@ $(function() {
         var customerPriceSensitivity = priceSens[0];
         //how much is that customer willing to pay
         var $cupcakeLeft = parseInt($('.numOfCC').text());
-        if (customerDemand < $cupcakeLeft) {
+        if (customerDemand <= $cupcakeLeft) {
 
             var totalPrice = customerDemand * price;
             $('.registerValue').text(totalPrice);
@@ -188,41 +199,37 @@ $(function() {
             custDemands.shift();
             priceSens.shift();
             var $firstCustomer = $('ul li:nth-child(1)');
+            $firstCustomer.remove();
+            $('.custDemand1').remove();
             var $secondCustomer = $('ul li:nth-child(2)');
             $secondCustomer.removeClass('secondCustomer');
             var $thirdCustomer = $('ul li:nth-child(3)');
             $thirdCustomer.removeClass('thirdCustomer');
-            $firstCustomer.remove();
+
             positioningCustomers();
             //figure out why the cupcakes never reach 0 using this function
         }
-
-
     }
 
-    $('.ringUp').on('click', function() {
-        ringUpSale();
+
+
+
+    //Starting The Game
+    $('.start_btn').on('click', function() {
+        startTime();
+        $('.start_btn').fadeOut('400', function() {});;
         randomizedCustomerCreation();
-        //maybe this function should be connected to an advertisement campaign that costs money
+        $('button.bake_btn').on('click', function() {
+            bakeCupcake(5);
+        })
+        $('.ringUp').on('click', function() {
+            ringUpSale();
+            randomizedCustomerCreation();
+            //maybe this function should be connected to an advertisement campaign that costs money
+        })
     })
 
 
-
-
-
-    // var startTheGame = function(){
-    $('button.click_btn').on('click', function() {
-            bakeCupcake(5);
-            randomizedCustomerCreation();
-        })
-        // }
-        // startTheGame();
-
-
-    //Clicking the "bake new batch initializes when page loads"
-    // $('div.click_btn').on('click', function(){
-    //     bakeCupcake(6);
-    // })
 
 
 
