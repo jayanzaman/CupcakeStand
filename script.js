@@ -21,7 +21,7 @@ $(function() {
 
         var m = 0;
         var h = 0;
-        setInterval(function() {
+        var coolTimer = setInterval(function() {
             if (m < minuteArray.length) {
                 $('span.minute').text(minuteArray[m]);
                 m++;
@@ -35,11 +35,14 @@ $(function() {
                     var profit = $cashLeft - 100;
                     if (profit > 0) {
                         alert("Day is over. You've made a profit of $" + profit);
+                        clearInterval(coolTimer);
                     } else if (profit === 0) {
                         alert("Day is over and you didn't make any profit.");
+                        clearInterval(coolTimer);
                     } else {
                         var loss = 100 - $cashLeft;
                         alert("Day is over. You have lost $" + loss);
+                        clearInterval(coolTimer);
                     }
                     m = minuteArray.length;
                 }
