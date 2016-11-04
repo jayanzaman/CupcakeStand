@@ -157,13 +157,14 @@ body {
   background-size: 458%;
 }
 .cupcake0{
-/*   position: absolute;
-  background-image: url('img/cupcakeCountStripe.001.jpeg');
-  background-position: -432px -627px;
-  width: 322px;
-  height: 79px;
-  top:  436px;
-  left: 149px; */
+  position: absolute;
+  background-image: url('img/cupcakeStripe2.jpeg');
+  background-position: -121px -203px;
+  width: 325px;
+  height: 131px;
+  top:  374px;
+  left: 279px;
+  background-size: 458%;
 }
 .displayCupcakes{
   position: absolute;
@@ -194,6 +195,16 @@ body {
   left: 282px;
   /* text-align: center; */
 }
+.register{
+  position: absolute;
+  width: 87px;
+  height: 26px;
+  top: 447px;
+  left: 904px;
+  background-color: #000;
+  color: green;
+}
+
 .baking{
   left: 416px;
   top: 419px;

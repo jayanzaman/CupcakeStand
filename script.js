@@ -3,6 +3,7 @@ $(function() {
 
     var $container = $('div.container');
     var cashOnHand;
+    var price = 3;
     var startTime = function() {
         var $timeDisplay = $('<button role="button" class="btn btn-default time">Time: <span class="hour">8</span> Hours <span class="minute">0</span> minutes left</button>');
         $container.append($timeDisplay);
@@ -77,7 +78,8 @@ $(function() {
             $cupcakesLeft = 0
         };
         $('span.numOfCC').text($cupcakesLeft);
-        var $updatedCC = $('<div class="cupcake' + $cupcakesLeft + '""></div>');
+        $('.prevBatch').remove();
+        var $updatedCC = $('<div class=" prevBatch cupcake' + $cupcakesLeft + '""></div>');
         $container.append($updatedCC);
         return $cupcakesLeft;
     }
@@ -157,9 +159,6 @@ $(function() {
     for (var i = 1; i < 4; i++) {
         customerCreation();
     }
-    console.log(customerQ);
-
-
 
     var randomizedCustomerCreation = function() {
             if (customerQ.length < 3) {
@@ -182,14 +181,12 @@ $(function() {
         //check how many cupcakes the customer wants
         var customerPriceSensitivity = priceSens[0];
         //how much is that customer willing to pay
-        console.log('demand ' + customerDemand);
-        console.log('price sensitivity ' + customerPriceSensitivity);
         var $cupcakeLeft = parseInt($('.numOfCC').text());
-        console.log('cupcake left ' + $cupcakeLeft);
-        console.log('customers ' + customersOnQueue);
-        console.log('demands ' + customerDemand);
         if (customerDemand < $cupcakeLeft) {
-            updateCash(customerDemand * 3, 0);
+
+            var totalPrice = customerDemand * price;
+            $('.registerValue').text(totalPrice);
+            updateCash(totalPrice, 0);
             totalCupcakes(-customerDemand);
             customerQ.shift();
             custDemands.shift();
