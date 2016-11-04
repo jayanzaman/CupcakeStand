@@ -13,7 +13,7 @@ $(function() {
         }
         minuteArray.reverse();
         var hourArray = [];
-        for (var j = 8; j > -1; j--) {
+        for (var j = 7; j > -1; j--) {
             hourArray.push(j);
         }
 
@@ -42,13 +42,13 @@ $(function() {
         //this function will trigger on a click on the screen
         var totCupcakes = totalCupcakes(0);
 
-        if ((totCupcakes + n) <= 12) {
+        if ((totCupcakes + n) <= 10) {
             setTimeout(function() {
                 // totCupcakes = totalCupcakes(n);
                 var totsCupcakes = totalCupcakes(n);
                 // var $newbatch = $('<div class="cupcake' + totCupcakes + '""></div>');
                 // $container.append($newbatch);
-                updateCash(0, 12);
+                updateCash(0, 10);
                 return totsCupcakes;
             }, 2000);
         } else {
@@ -200,7 +200,7 @@ $(function() {
 
     // var startTheGame = function(){
     $('button.click_btn').on('click', function() {
-            bakeCupcake(6);
+            bakeCupcake(5);
         })
         // }
         // startTheGame();

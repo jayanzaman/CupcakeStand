@@ -30,121 +30,131 @@ body {
   /* z-index: 0; */
   background-size: contain;
   background-repeat: no-repeat;
-  width: 1504px;
+  /* width: 1504px; */
   height: 763px;
   top:  616px;
   left: 116px;
 }
 
-.cupcake12{
+/* .cupcake12{
   position: absolute;
-  background-image: url('img/cupcakeCountStripe.001.jpeg');
+  background-image: url('img/cupcakeStripe2.jpeg');
   background-position: -78px -97px;
-  width: 322px;
-  height: 79px;
-  top:  436px;
-  left: 149px;
-}
-.cupcake11{
+  width: 325px;
+  height: 131px;
+  top:  374px;
+  left: 279px;
+  background-size: 458%;
+} */
+/* .cupcake11{
   position: absolute;
-  background-image: url('img/cupcakeCountStripe.001.jpeg');
+  background-image: url('img/cupcakeStripe2.jpeg');
   background-position: -78px -203px;
-  width: 322px;
-  height: 79px;
-  top:  436px;
-  left: 149px;
-}
+  width: 325px;
+  height: 131px;
+  top:  374px;
+  left: 279px;
+  background-size: 458%; */
+/* } */
 .cupcake10{
   position: absolute;
-  background-image: url('img/Cupcake_stand_.jpg');
-  background-position: -117px -1040px;
-  width: 104%;
-  height: 117px;
-  top:  345px;
-  left: 268px;
+  background-image: url('img/cupcakeStripe2.jpeg');
+  background-position: -884px -357px;
+  width: 325px;
+  height: 131px;
+  top:  374px;
+  left: 279px;
+  background-size: 458%;
 }
 .cupcake9{
   position: absolute;
-  background-image: url('img/cupcakeCountStripe.001.jpeg');
-  background-position: -78px -415px;
-  width: 322px;
-  height: 79px;
-  top:  436px;
-  left: 149px;
+  background-image: url('img/cupcakeStripe2.jpeg');
+  background-position: -501px -824px;
+  width: 325px;
+  height: 131px;
+  top:  374px;
+  left: 279px;
+  background-size: 458%;
 }
 .cupcake8{
   position: absolute;
-  background-image: url('img/cupcakeCountStripe.001.jpeg');
-  background-position: -78px -521px;
-  width: 322px;
-  height: 79px;
-  top:  436px;
-  left: 149px;
+  background-image: url('img/cupcakeStripe2.jpeg');
+  background-position: -501px -668px;
+  width: 325px;
+  height: 131px;
+  top:  374px;
+  left: 279px;
+  background-size: 458%;
 }
 .cupcake7{
   position: absolute;
-  background-image: url('img/cupcakeCountStripe.001.jpeg');
-  background-position: -78px -627px;
-  width: 322px;
-  height: 79px;
-  top:  436px;
-  left: 149px;
+  background-image: url('img/cupcakeStripe2.jpeg');
+  background-position: -501px -513px;
+  width: 325px;
+  height: 131px;
+  top:  374px;
+  left: 279px;
+  background-size: 458%;
 }
 .cupcake6{
   position: absolute;
-  background-image: url('img/Cupcake_stand_.jpg');
-  background-position: -117px -1040px;
-  background-size: contain;
-  width: 104%;
-  height: 117px;
-/*   background-size: 60%; */
-  top:  345px;
-  left: 268px;
+  background-image: url('img/cupcakeStripe2.jpeg');
+  background-position: -501px -357px;
+  width: 325px;
+  height: 131px;
+  top:  374px;
+  left: 279px;
+  background-size: 458%;
 }
 .cupcake5{
   position: absolute;
-  background-image: url('img/cupcakeCountStripe.001.jpeg');
-  background-position: -432px -203px;
-  width: 322px;
-  height: 79px;
-  top:  436px;
-  left: 149px;
+  background-image: url('img/cupcakeStripe2.jpeg');
+  background-position: -501px -203px;
+  width: 325px;
+  height: 131px;
+  top:  374px;
+  left: 279px;
+  background-size: 458%;
 }
 .cupcake4{
   position: absolute;
-  background-image: url('img/cupcakeCountStripe.001.jpeg');
-  background-position: -432px -309px;
-  width: 322px;
-  height: 79px;
-  top:  436px;
-  left: 149px;
+  background-image: url('img/cupcakeStripe2.jpeg');
+  background-position: -121px -824px;
+  width: 325px;
+  height: 131px;
+  top:  374px;
+  left: 279px;
+  background-size: 458%;
 }
 .cupcake3{
   position: absolute;
-  background-image: url('img/cupcakeCountStripe.001.jpeg');
-  background-position: -432px -415px;
-  width: 322px;
-  height: 79px;
-  top:  436px;
-  left: 149px;
+  background-image: url('img/cupcakeStripe2.jpeg');
+  background-position: -121px -668px;
+  width: 325px;
+  height: 131px;
+  top:  374px;
+  left: 279px;
+  background-size: 458%;
 }
 .cupcake2{
   position: absolute;
-  background-image: url('img/cupcakeCountStripe.001.jpeg');
-  background-position: -432px -521px;
-  width: 322px;
-  height: 79px;
-  top:  436px;
-  left: 149px;
+  background-image: url('img/cupcakeStripe2.jpeg');
+  background-position: -121px -513px;
+  width: 325px;
+  height: 131px;
+  top:  374px;
+  left: 279px;
+  background-size: 458%;
 }
 .cupcake1{
   position: absolute;
-  background-image: url('img/cupcakeCountStripe.001.jpeg');
-  background-position: -432px -627px;
-  width: 322px;
-  height: 79px;
-  top:  436px;
-  left: 149px;
+  background-image: url('img/cupcakeStripe2.jpeg');
+  background-position: -121px -356px;
+  width: 325px;
+  height: 131px;
+  top:  374px;
+  left: 279px;
+  background-size: 458%;
 }
 .cupcake0{
 /*   position: absolute;
@@ -160,8 +170,8 @@ body {
   background-color: orange;
   /* width: 142px; */
   /* height: 20px; */
-  top: 182px;
-  left: 232px;
+  top: 334px;
+  left: 472px;
   text-align: center;
 }
 .click_btn{
@@ -169,8 +179,8 @@ body {
   /* background-color: yellow; */
   /* width: 100px; */
   /* height: 50px; */
-  top: 304px;
-  left: 270px;
+  top: 335px;
+  left: 279px;
   /* text-align: center; */
 
 }
@@ -180,8 +190,8 @@ body {
   /* width: 100px; */
   /* height: 50px; */
   /* color: #fff; */
-  top: 131px;
-  left: 233px;
+  top: 250px;
+  left: 282px;
   /* text-align: center; */
 }
 .charBaker{
@@ -218,8 +228,8 @@ ul, li{
   /* background-color: lightgreen; */
   /* width: 100px; */
   /* height: 50px; */
-  top: 466px;
-  left: 833px;
+  top: 531px;
+  left: 895px;
   text-align: center;
 }
 
@@ -230,8 +240,8 @@ ul, li{
   /* background-color: lightblue; */
   /* width: 225px; */
   /* height: 22px; */
-  top: 188px;
-  left: 494px;
+  top: 251px;
+  left: 527px;
   text-align: center;
 }
 
