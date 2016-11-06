@@ -1,0 +1,327 @@
+/* background image */
+.background {
+  background-image: url('img/background.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 763px;
+  width: 100%;
+  top:  616px;
+  left: 116px;
+}
+.start_btn{
+  position: absolute;
+  top: 93px;
+  left: 458px;
+}
+.price{
+  position: absolute;
+  top: 192px;
+  left: 668px;
+  background-color: white;
+  border-color: #1b5e20;
+  color: black;
+  height: 32px;
+}
+/* cupcakes */
+.cupcake{
+  position: absolute;
+  background-image: url('img/cupcakeSprite.jpeg');
+
+  width: 184px;
+  height: 72px;
+  top:  465px;
+  left: 218px;
+  background-size: 391%;
+  background-repeat: no-repeat;
+}
+.cupcake10{
+  position: absolute;
+  background-image: url('img/cupcakeSprite.jpeg');
+  background-position: -225px -415px;
+  width: 184px;
+  height: 72px;
+  top:  465px;
+  left: 218px;
+  background-size: 391%;
+  background-repeat: no-repeat;
+}
+.cupcake9{
+  position: absolute;
+  background-image: url('img/cupcakeSprite.jpeg');
+  background-position: -225px -326px;
+  width: 184px;
+  height: 72px;
+  top:  465px;
+  left: 218px;
+  background-size: 391%;
+  background-repeat: no-repeat;
+}
+.cupcake8{
+  position: absolute;
+  background-image: url('img/cupcakeSprite.jpeg');
+  background-position: -225px -235px;
+  width: 184px;
+  height: 72px;
+  top:  465px;
+  left: 218px;
+  background-size: 391%;
+  background-repeat: no-repeat;
+}
+.cupcake7{
+  position: absolute;
+  background-image: url('img/cupcakeSprite.jpeg');
+  background-position: -225px -146px;
+  width: 184px;
+  height: 72px;
+  top:  465px;
+  left: 218px;
+  background-size: 391%;
+  background-repeat: no-repeat;
+}
+.cupcake6{
+  position: absolute;
+  background-image: url('img/cupcakeSprite.jpeg');
+  background-position: -225px -55px;
+  width: 184px;
+  height: 72px;
+  top:  465px;
+  left: 218px;
+  background-size: 391%;
+  background-repeat: no-repeat;
+}
+.cupcake5{
+  position: absolute;
+  background-image: url('img/cupcakeSprite.jpeg');
+  background-position: -24px -418px;
+  width: 184px;
+  height: 72px;
+  top:  465px;
+  left: 218px;
+  background-size: 391%;
+  background-repeat: no-repeat;
+}
+.cupcake4{
+  position: absolute;
+  background-image: url('img/cupcakeSprite.jpeg');
+  background-position: -24px -326px;
+  width: 184px;
+  height: 72px;
+  top:  465px;
+  left: 218px;
+  background-size: 391%;
+  background-repeat: no-repeat;
+}
+.cupcake3{
+  position: absolute;
+  background-image: url('img/cupcakeSprite.jpeg');
+  background-position: -24px -235px;
+  width: 184px;
+  height: 72px;
+  top:  465px;
+  left: 218px;
+  background-size: 391%;
+  background-repeat: no-repeat;
+}
+.cupcake2{
+  position: absolute;
+  background-image: url('img/cupcakeSprite.jpeg');
+  background-position: -24px -148px;
+  width: 184px;
+  height: 72px;
+  top:  465px;
+  left: 218px;
+  background-size: 391%;
+  background-repeat: no-repeat;
+}
+.cupcake1{
+  position: absolute;
+  background-image: url('img/cupcakeSprite.jpeg');
+  background-position: -24px -58px;
+  width: 184px;
+  height: 72px;
+  top:  465px;
+  left: 218px;
+  background-size: 391%;
+  background-repeat: no-repeat;
+}
+.cupcake0{
+  position: absolute;
+  background-image: url('img/cupcakeSprite.jpeg');
+  background-position: -414px -55px;
+  width: 184px;
+  height: 72px;
+  top:  465px;
+  left: 218px;
+  background-size: 391%;
+  background-repeat: no-repeat;
+}
+.displayCupcakes{
+  position: absolute;
+  background-color: pink;
+  /* width: 142px; */
+  /* height: 20px; */
+  top: 429px;
+  left: 243px;
+  text-align: center;
+}
+.cupcakeSprite{
+  position: absolute;
+  background-image: url('img/cupcakeSprite.jpeg');
+  background-position: -1px -6px;
+  width: 816px;
+  height: 267px;
+  top:  308px;
+  left: 465px;
+  background-size: 44%;
+  background-repeat: no-repeat;
+}
+.bake_btn{
+  position: absolute;
+  top: 391px;
+  left: 242px;
+  background-color: #ff8f00;
+  border-color: #ff6f00;
+}
+.baking{
+  left: 280px;
+  top: 484px;
+  position: absolute;
+  color: #ff6f00;
+  z-index: 1;
+}
+/* other buttons */
+.cash{
+  position: absolute;
+  top: 160px;
+  left: 240px;
+  background-color: #2e7d32;
+  border-color: #1b5e20;
+  color: white;
+  height: 32px;
+}
+.register{
+  position: absolute;
+  width: 45px;
+  height: 20px;
+  top: 464px;
+  left: 742px;
+  background-color: #000;
+  color: green;
+}
+
+
+ul, li{
+  list-style: none;
+}
+.cupcakegirl{
+  position: absolute;
+  background-image: url('img/baker.png');
+  background-position: -1px -6px;
+  width: 816px;
+  height: 267px;
+  top:  308px;
+  left: 465px;
+  background-size: 44%;
+  background-repeat: no-repeat;
+}
+.customer{
+  position: absolute;
+  background-image: url('img/customer.png');
+  background-position: -1px -6px;
+  width: 819px;
+  height: 281px;
+  top:  400px;
+  left: 652px;
+  background-size: 50%;
+  background-repeat: no-repeat;
+}
+.buyer{
+  position: absolute;
+  top:  398px;
+  left: 714px;
+  font-size: 361px;
+}
+.firstCustomer{
+  top:  400px;
+  left: 652px;
+}
+.secondCustomer{
+  top:  400px;
+  left: 700px;
+}
+.thirdCustomer{
+  top:  400px;
+  left: 750px;
+}
+.ringUp{
+  position: absolute;
+  top: 494px;
+  left: 702px;
+  text-align: center;
+  z-index: 2;
+}
+.time{
+  position: absolute;
+  top: 160px;
+  left: 410px;
+  text-align: center;
+}
+.custDemand1{
+  position: absolute;
+  top: 20px;
+  left: 725px;
+  /* background-color: blue; */
+  width: 290px;
+  height: 35px;
+  color: #000;
+}
+.custDemand2{
+  position: absolute;
+  top: 60px;
+  left: 725px;
+  /* background-color: blue; */
+  width: 290px;
+  height: 35px;
+  color: #000;
+}
+.custDemand3{
+  position: absolute;
+  top: 100px;
+  left: 725px;
+  /* background-color: blue; */
+  width: 290px;
+  height: 35px;
+  color: #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

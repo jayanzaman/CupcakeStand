@@ -222,7 +222,6 @@ $(function() {
         //how much is that customer willing to pay
         var $cupcakeLeft = parseInt($('.numOfCC').text());
         if (customerDemand <= $cupcakeLeft) {
-
             var totalPrice = customerDemand * price;
             $('.registerValue').text(totalPrice);
             updateCash(totalPrice, 0);
