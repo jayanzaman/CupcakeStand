@@ -33,14 +33,14 @@ $(function() {
         $('.displayCupcake').remove();
 
     }
-    var restart = function(){
+    var restart = function() {
 
     }
     var startTime = function() {
         var $timeDisplay = $('<button role="button" class="btn btn-default time">Time: <span class="hour">1</span> Minute <span class="minute">60</span> seconds left</button>');
         $otherContainer.append($timeDisplay);
         var startingSecond = 60;
-        var startingMinute = 2;
+        var startingMinute = 1;
         var secondArray = [];
         for (var i = 0; i < startingSecond; i++) {
             secondArray.push(i);
@@ -127,7 +127,7 @@ $(function() {
         };
         $('span.numOfCC').text($cupcakesLeft);
         $('.prevBatch').remove();
-        var $updatedCC = $('<div class=" prevBatch cupcake' + $cupcakesLeft + '""></div>');
+        var $updatedCC = $('<div class=" cupcake prevBatch cupcake' + $cupcakesLeft + '""></div>');
         $otherContainer.append($updatedCC);
         return $cupcakesLeft;
     }
@@ -171,20 +171,20 @@ $(function() {
             var demand = Math.ceil(Math.random() * 5);
             custDemands.push(demand);
         };
-        if ($('li.firstCustomer').length > 0) {
-            var $firstCustDemand = $('<div class="custDemand1 btn btn-default">Next customer wants <span>' + custDemands[0] + '</span> cupcake(s)</div>');
-            $('.customerContainer').append($firstCustDemand);
+        if ($('.demand').length <= 3) {
+            if ($('li.firstCustomer').length > 0) {
+                var $firstCustDemand = $('<div class="demand custDemand1 btn btn-default">Next customer wants <span>' + custDemands[0] + '</span> cupcake(s)</div>');
+                $('.customerContainer').append($firstCustDemand);
+            }
+            if ($('li.secondCustomer').length > 0) {
+                var $secondCustDemand = $('<div class="demand custDemand2 btn btn-default">Next customer wants <span>' + custDemands[1] + '</span> cupcake(s)</div>');
+                $('.customerContainer').append($secondCustDemand);
+            }
+            if ($('li.thirdCustomer').length > 0) {
+                var $thirdCustDemand = $('<div class="demand custDemand3 btn btn-default">Next customer wants <span>' + custDemands[2] + '</span> cupcake(s)</div>');
+                $('.customerContainer').append($thirdCustDemand);
+            }
         }
-        if ($('li.secondCustomer').length > 0) {
-            var $secondCustDemand = $('<div class="custDemand2 btn btn-default">Next customer wants <span>' + custDemands[1] + '</span> cupcake(s)</div>');
-            $('.customerContainer').append($secondCustDemand);
-        }
-        if ($('li.thirdCustomer').length > 0) {
-            var $thirdCustDemand = $('<div class="custDemand3 btn btn-default">Next customer wants <span>' + custDemands[2] + '</span> cupcake(s)</div>');
-            $('.customerContainer').append($thirdCustDemand);
-        }
-
-
     };
 
     var positioningCustomers = function() {
@@ -237,49 +237,57 @@ $(function() {
         var customerPriceSensitivity = priceSens[0];
         //how much is that customer willing to pay
         var $cupcakeLeft = parseInt($('.numOfCC').text());
-        console.log("nprice "+nprice);
-        console.log("priceSends "+priceSens[0]);
-        if ((customerDemand <= $cupcakeLeft) && (nprice <= priceSens[0])) {
-            var totalPrice = customerDemand * nprice;
-            $('.registerValue').text(totalPrice);
-            updateCash(totalPrice, 0);
-            totalCupcakes(-customerDemand);
-            customerQ.shift();
-            var $firstCustomer = $('ul li:nth-child(1)');
-            $firstCustomer.remove();
-            custDemands.shift();
-            $('.custDemand1').remove();
-            priceSens.shift();
-            var $secondCustomer = $('ul li:nth-child(2)');
-            $secondCustomer.remove();
-            $('.custDemand2').remove();
-            var $thirdCustomer = $('ul li:nth-child(3)');
-            $thirdCustomer.remove();
-            $('.custDemand3').remove();
-            positioningCustomers();
-        } else {
-            alert("Your prices are too expensive!")
-            $('.registerValue').text(0);
-            customerQ.shift();
-            var $firstCustomer = $('ul li:nth-child(1)');
-            $firstCustomer.remove();
-            custDemands.shift();
-            $('.custDemand1').remove();
-            priceSens.shift();
+        console.log("nprice " + nprice);
+        console.log("priceSends " + priceSens[0]);
+        if (customerDemand <= $cupcakeLeft) {
+            if (nprice <= priceSens[0]) {
+                var totalPrice = customerDemand * nprice;
+                $('.registerValue').text(totalPrice);
+                updateCash(totalPrice, 0);
+                totalCupcakes(-customerDemand);
+                customerQ.shift();
+                var $firstCustomer = $('ul li:nth-child(1)');
+                $firstCustomer.remove();
+                custDemands.shift();
+                $('.custDemand1').remove();
+                priceSens.shift();
+                var $secondCustomer = $('ul li:nth-child(2)');
+                $secondCustomer.remove();
+                $('.custDemand2').remove();
+                var $thirdCustomer = $('ul li:nth-child(3)');
+                $thirdCustomer.remove();
+                $('.custDemand3').remove();
+                positioningCustomers();
+            } else {
+                alert("Your prices are too expensive!")
+                $('.registerValue').text(0);
+                customerQ.shift();
+                var $firstCustomer = $('ul li:nth-child(1)');
+                $firstCustomer.remove();
+                custDemands.shift();
+                $('.custDemand1').remove();
+                priceSens.shift();
+            }
         }
+        // alert("You don't have enough cupcakes to sell. Start baking another batch.")
     }
 
     //Starting The Game
     $('.start_btn').on('click', function() {
         startTime();
         $('.start_btn').fadeOut('400', function() {});;
-        randomizedCustomerCreation();
+        setInterval(function() {
+            randomizedCustomerCreation();
+        }, 1000);
         $('button.bake_btn').on('click', function() {
             bakeCupcake(5);
         })
         $('.ringUp').on('click', function() {
-            ringUpSale();
-            randomizedCustomerCreation();
+            if ($('.customer').length > 0) {
+                ringUpSale();
+            } else {
+                alert("There is no customer yet.")
+            }
             //maybe this function should be connected to an advertisement campaign that costs money
         })
         $('.price').on('click', function() {
