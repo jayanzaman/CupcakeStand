@@ -31,10 +31,25 @@ $(function() {
         $('.cupcake10').remove();
         $('.cupcake0').remove();
         $('.displayCupcake').remove();
+        $('.cupcakeStandName').remove();
+        $('.registerValue').remove();
+        $('.price').remove();
+        $('button.ringUp').remove();
+        $('.numOfCC').remove();
+        var $restartButton = $('<button type="button" class="restart btn btn-default btn-lg">Restart</button>');
+        $otherContainer.append($restartButton);
+        $restartButton.on('click', function() {
+                    restart();
+                });
 
     }
+    var cupcakeStandName = function() {
+        var name = prompt("What's your first name?")
+        var $newName = $("<div class='cupcakeStandName'>" + name + "'s Cupcakes</div>")
+        $otherContainer.append($newName);
+    }
     var restart = function() {
-
+      window.location.reload();
     }
     var startTime = function() {
         var $timeDisplay = $('<button role="button" class="btn btn-default time">Time: <span class="hour">1</span> Minute <span class="minute">60</span> seconds left</button>');
@@ -107,7 +122,7 @@ $(function() {
             alert("Not enouch space in the cupcake display case.")
                 // var $newbatch = $('<button type="button" class="btn btn-warning cupcake' + totCupcakes + '""></button>');
             var $newbatch = $('<div class="cupcake' + totCupcakes + '""></div>');
-            $container.append($newbatch);
+            $cupcakeContainer.append($newbatch);
             return totCupcakes;
         }
     }
@@ -145,11 +160,11 @@ $(function() {
         //but the distribution of these groups vary by (70%, 20%, 10%)
         //so, creating an array that reflects this:
         var group1 = 3;
-        var group2 = 5;
-        var group3 = 10;
-        var group1prob = 70;
-        var group2prob = 20;
-        var group3prob = 10;
+        var group2 = 10;
+        var group3 = 20;
+        var group1prob = 40;
+        var group2prob = 30;
+        var group3prob = 20;
         var probArray = [];
         for (var i = 0; i < group1prob; i++) {
             probArray.push(group1);
@@ -268,32 +283,56 @@ $(function() {
                 $('.custDemand1').remove();
                 priceSens.shift();
             }
+        } else {
+            alert("You don't have enough cupcakes to sell.")
         }
         // alert("You don't have enough cupcakes to sell. Start baking another batch.")
     }
 
     //Starting The Game
-    $('.start_btn').on('click', function() {
-        startTime();
-        $('.start_btn').fadeOut('400', function() {});;
-        setInterval(function() {
-            randomizedCustomerCreation();
-        }, 1000);
-        $('button.bake_btn').on('click', function() {
-            bakeCupcake(5);
+    var startGame = function() {
+        //clicking start button starts the game
+        //Creates a bunch of divs
+
+        $('.start_btn').on('click', function() {
+            var $cupcakesLeft = $('<button class="btn btn-default displayCupcakes">Cupcakes Left: <span class="numOfCC">0</span></button>');
+            var $bakeButton = $('<button type="button" class="bake_btn btn btn-warning">Bake a new batch</button>');
+            var $noCupcakes = $('<div class="cupcake0""></div>')
+            $cupcakeContainer.append($noCupcakes);
+            $cupcakeContainer.append($cupcakesLeft);
+            $cupcakeContainer.append($bakeButton);
+            var $cashButton = $('<button role="button" class="btn btn-default cash">Cash: $<span class="cashAmount">100</span></p></button>');
+            var $registerButton = $('<div class="register">$<span class="registerValue">0</span>.00</div>')
+            var $ringupButton = $('<button type="button" class="btn btn-success ringUp">Ring up</button>')
+            var $cupcakePrice = $('<button role="button" class="btn btn-default price">Cupcake Price: $<span class="ccPrice">3</button>')
+            $otherContainer.append($cashButton);
+            $otherContainer.append($registerButton);
+            $otherContainer.append($ringupButton);
+            $otherContainer.append($cupcakePrice);
+
+            startTime();
+            cupcakeStandName(); //Name's the Cupcake stand
+            $('.start_btn').fadeOut('400', function() {});; //fades out the start button
+            setInterval(function() {
+                randomizedCustomerCreation();
+            }, 1000); //this function randomizes creation of new customers
+            $('button.bake_btn').on('click', function() {
+                    bakeCupcake(5);
+                }) //initializes the bake button
+            $('.ringUp').on('click', function() {
+                    if ($('.customer').length > 0) {
+                        ringUpSale();
+                    } else {
+                        alert("There is no customer yet.")
+                    }
+                }) //initialized the ring up register button
+            $('.price').on('click', function() {
+                    priceSet();
+                }) //initializes the setting pricing function
         })
-        $('.ringUp').on('click', function() {
-            if ($('.customer').length > 0) {
-                ringUpSale();
-            } else {
-                alert("There is no customer yet.")
-            }
-            //maybe this function should be connected to an advertisement campaign that costs money
-        })
-        $('.price').on('click', function() {
-            priceSet();
-        })
-    })
+    }
+    startGame();
+
 
 
 
