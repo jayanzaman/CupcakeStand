@@ -39,8 +39,8 @@ $(function() {
         var $restartButton = $('<button type="button" class="restart btn btn-default btn-lg">Restart</button>');
         $otherContainer.append($restartButton);
         $restartButton.on('click', function() {
-                    restart();
-                });
+            restart();
+        });
 
     }
     var cupcakeStandName = function() {
@@ -49,7 +49,7 @@ $(function() {
         $otherContainer.append($newName);
     }
     var restart = function() {
-      window.location.reload();
+        window.location.reload();
     }
     var startTime = function() {
         var $timeDisplay = $('<button role="button" class="btn btn-default time">Time: <span class="hour">1</span> Minute <span class="minute">60</span> seconds left</button>');
@@ -190,14 +190,23 @@ $(function() {
             if ($('li.firstCustomer').length > 0) {
                 var $firstCustDemand = $('<div class="demand custDemand1 btn btn-default">Next customer wants <span>' + custDemands[0] + '</span> cupcake(s)</div>');
                 $('.customerContainer').append($firstCustDemand);
+                $($firstCustDemand).on('click', function() {
+                    ringUpSale();
+                });
             }
             if ($('li.secondCustomer').length > 0) {
                 var $secondCustDemand = $('<div class="demand custDemand2 btn btn-default">Next customer wants <span>' + custDemands[1] + '</span> cupcake(s)</div>');
                 $('.customerContainer').append($secondCustDemand);
+                $($secondCustDemand).on('click', function() {
+                    ringUpSale();
+                });
             }
             if ($('li.thirdCustomer').length > 0) {
                 var $thirdCustDemand = $('<div class="demand custDemand3 btn btn-default">Next customer wants <span>' + custDemands[2] + '</span> cupcake(s)</div>');
                 $('.customerContainer').append($thirdCustDemand);
+                $($thirdCustDemand).on('click', function() {
+                    ringUpSale();
+                });
             }
         }
     };
@@ -252,8 +261,6 @@ $(function() {
         var customerPriceSensitivity = priceSens[0];
         //how much is that customer willing to pay
         var $cupcakeLeft = parseInt($('.numOfCC').text());
-        console.log("nprice " + nprice);
-        console.log("priceSends " + priceSens[0]);
         if (customerDemand <= $cupcakeLeft) {
             if (nprice <= priceSens[0]) {
                 var totalPrice = customerDemand * nprice;
