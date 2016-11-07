@@ -13,5 +13,5 @@ In this game, you will play the role of a capcake baker. The goal is to make as 
     * For those who are technically inclined, the customer randomization is created via the following:
         * At a pre-determined set interval, the program does a "GO or NO GO" to determine if it should create new customers. With each "GO", it creates new customers.
         * Customers disappear after they have been served.
-* You can als set the price of the cupcake. But it's important to know that some customers are price sensitive, and they will not buy expensive cupcakes. However, while some may leave when faced with high prices, some will buy cupcakes even at higher prices. So strategize accordingly and have fun. 
+* You can also set the price of the cupcake. But it's important to know that some customers are price sensitive, and they will not buy expensive cupcakes. However, while some may leave when faced with high prices, some will buy cupcakes even at higher prices. So strategize accordingly and have fun. 
  
