@@ -1,7 +1,7 @@
 # CupcakeStand
 In this game, you will play the role of a capcake baker. The goal is to make as much profit as you can by the end of your time. The time goes by pretty quickly, so get to work...
 
-###Things to know
+###Things to know about the game
 * When you click "Start", a timer appears and counts down to 0. When the timer ends, the game ends.
 * When you click on "Bake a new batch", it creates a batch of 5 cupcakes. 
     * Know that it takes some timet to bake these cupcakes. 
@@ -14,4 +14,16 @@ In this game, you will play the role of a capcake baker. The goal is to make as 
         * At a pre-determined set interval, the program does a "GO or NO GO" to determine if it should create new customers. With each "GO", it creates new customers.
         * Customers disappear after they have been served.
 * You can also set the price of the cupcake. But it's important to know that some customers are price sensitive, and they will not buy expensive cupcakes. However, while some may leave when faced with high prices, some will buy cupcakes even at higher prices. So strategize accordingly and have fun. 
+
+###How I created it
+* I first wrote out the idea of what I wanted in my notebook. 
+* I then downloaded Balsamiq Mockup 3 to do my wireframe.
+* Then I skectched out how I wanted my background to look and commisioned the drawing;
+* I used HTML, CSS, JavaScript with jQuery for the entire game. 
+* I created most items dynamically using jQuery and JavaScript.
+* I created a sprite of my cupcakes so I could show different numbers of cupcakes in the stand.
+* As I coded in JavaScript, I wrote some comments for what each functions were supposed to do. 
+* I had a few user experience feedback to improve the experience.
+* Finally, I published my game at https://jayanzaman.github.io/CupcakeStand/
+
  
